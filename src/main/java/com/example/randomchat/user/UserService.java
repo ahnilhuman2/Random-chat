@@ -16,7 +16,7 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public void insert(token, ip) {
-        userRepository.save(new User())
-    }
+ //   public void insert(token, ip) {
+ //       userRepository.save(new User())
+ //   }
 }
