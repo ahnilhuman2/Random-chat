@@ -1,12 +1,10 @@
 package com.example.randomchat.user;
 
 import com.example.randomchat.user.request.JoinRequest;
+import com.example.randomchat.user.request.UpdateRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,6 +27,14 @@ public class UserController {
 
     @PostMapping("/heart_beat")
     public void heartBeat() {
+
+    }
+
+    @PutMapping("/{userId}")
+    public void updateUser(@RequestBody @Validated UpdateRequest request, @PathVariable("userId") Long userId) {
+        User user = request.toUser();
+
+        userService.updateUser(userId, user);
 
     }
 }

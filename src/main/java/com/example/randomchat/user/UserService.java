@@ -27,4 +27,10 @@ public class UserService {
 //        }
         userRepository.save(user);
     }
+
+    public void updateUser(Long userId, User user) {
+
+        User updateUser = userRepository.findById(userId).orElse(null);
+        userRepository.save(updateUser);
+    }
 }
